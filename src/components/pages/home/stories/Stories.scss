@@ -1,0 +1,79 @@
+.section-stories {
+    position: relative;
+    padding: 9.375rem 0;
+}
+
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.2;
+    overflow: hidden;
+
+    &__content {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        pointer-events: none;
+    }
+}
+
+.story {
+    width: 65%;
+    margin: 5rem auto;
+    box-shadow: 0 1.875rem 3.75rem rgba(#000, 0.1);
+    background-color: rgba(#fff, 0.6);
+    border-radius: 3px;
+    padding: 3.75rem;
+    padding-left: 5.625rem;
+    transform: skewX(-12deg);
+
+    &__shape {
+        width: 9.375rem;
+        height: 9.375rem;
+        float: left;
+        shape-outside: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        transform: translateX(-1.875rem) skewX(0);
+        position: relative;
+    }
+
+    &__img {
+        transform: scale(1.4);
+        height: 100%;
+        transition: all 500ms;
+    }
+
+    &__text {
+        transform: skewX(12deg);
+    }
+
+    &__caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        color: #fff;
+        text-transform: uppercase;
+        text-align: center;
+        opacity: 0;
+        transition: all 500ms;
+    }
+
+    &:hover &__caption {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    &:hover &__img {
+        transform: scale(1);
+        filter: blur(3px) brightness(80%);
+    }
+}
+
+.story-container {
+    padding: 5rem 0;
+}
