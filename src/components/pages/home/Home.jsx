@@ -1,10 +1,17 @@
 import React from "react";
+import About from "./about/About";
+import Features from "./features/Features";
+import MainHeader from "./header/MainHeader";
+import ToursSection from "./toursSection/ToursSection";
 
 const Home = () => {
     return (
-        <div>
-            <h1>Hello from the hoooooooooome</h1>
-        </div>
+        <>
+            <MainHeader />
+            <About />
+            <Features />
+            <ToursSection />
+        </>
     );
 };
 

@@ -1,0 +1,41 @@
+.feature-section {
+    padding: 15rem 0;
+    background-image: linear-gradient(
+            to right bottom,
+            hsla(180, 64%, 57%, 0.801),
+            hsla(207, 100%, 35%, 0.849)
+        ),
+        url("../../../../Images/nat-4.jpg");
+    background-size: cover;
+    transform: skewY(7deg);
+    margin-top: -7rem;
+
+    & > * {
+        transform: skewY(-7deg);
+    }
+}
+
+.ui.card.feature-card {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    transition: all 300ms;
+}
+
+.ui.card.feature-card:hover {
+    transform: translateY(-0.9375rem) scale(1.03);
+}
+
+.ui.header.feature-heading {
+    color: whitesmoke;
+    font-size: 2.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 0.3rem 0.8rem 1rem rgba(0, 0, 0, 0.4);
+    letter-spacing: 2px;
+    transition: all 400ms;
+    margin-bottom: 4.25rem;
+
+    &:hover {
+        transform: scale(1.1);
+        text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.4);
+    }
+}
