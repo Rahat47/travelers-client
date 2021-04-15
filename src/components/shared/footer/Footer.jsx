@@ -15,24 +15,24 @@ const Footer = () => {
                     <Grid.Row>
                         <Grid.Column computer="8">
                             <Divider />
-                            <div class="footer__list">
-                                <Link to="#" class="footer__link">
+                            <div className="footer__list">
+                                <Link to="#" className="footer__link">
                                     Company
                                 </Link>
 
-                                <Link to="#" class="footer__link">
+                                <Link to="#" className="footer__link">
                                     Contact Us
                                 </Link>
 
-                                <Link to="#" class="footer__link">
+                                <Link to="#" className="footer__link">
                                     Careers
                                 </Link>
 
-                                <Link to="#" class="footer__link">
+                                <Link to="#" className="footer__link">
                                     Privacy Policy
                                 </Link>
 
-                                <Link to="#" class="footer__link">
+                                <Link to="#" className="footer__link">
                                     Terms
                                 </Link>
                             </div>
