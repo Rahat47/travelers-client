@@ -1,5 +1,7 @@
 import React from "react";
+import Footer from "../../shared/footer/Footer";
 import About from "./about/About";
+import ContactUs from "./contactUs/ContactUs";
 import Features from "./features/Features.jsx";
 import MainHeader from "./header/MainHeader";
 import Stories from "./stories/Stories";
@@ -13,6 +15,8 @@ const Home = () => {
             <Features />
             <ToursSection />
             <Stories />
+            <ContactUs />
+            <Footer />
         </>
     );
 };

@@ -1,0 +1,29 @@
+.section-contact {
+    padding: 9.375rem 0;
+    background-image: linear-gradient(to right bottom, #52d4fc, #005db4);
+}
+
+.ui.segment.contact-form {
+    padding: 8rem 5rem;
+    overflow: hidden;
+    background: transparent;
+}
+
+.ui.container.form-container {
+    background-image: linear-gradient(
+            105deg,
+            rgba(255, 255, 255, 0.9) 0%,
+            rgba(255, 255, 255, 0.9) 65%,
+            transparent 65%
+        ),
+        url("../../../../Images/nat-10.jpg");
+}
+
+.ui.header.heading-tertiary {
+    font-size: 2rem;
+    transition: all 400ms;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
