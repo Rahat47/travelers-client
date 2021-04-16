@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { TravelersContext } from "../../../App";
 import "./Navbar.scss";
 
 const Navbar = () => {
+    const { loggedInUser } = useContext(TravelersContext);
     return (
         <div className="navigation">
             <input
@@ -11,7 +13,7 @@ const Navbar = () => {
                 id="nav-toggle"
             />
 
-            <label for="nav-toggle" className="navigation__button">
+            <label htmlFor="nav-toggle" className="navigation__button">
                 <span className="navigation__icon">&nbsp;</span>
             </label>
 
@@ -30,8 +32,8 @@ const Navbar = () => {
                         </Link>
                     </li>
                     <li className="navigation__item">
-                        <Link to="/profile" className="navigation__link">
-                            <span>03</span>Your Profile
+                        <Link to="/reviews" className="navigation__link">
+                            <span>03</span>Tour Reviews
                         </Link>
                     </li>
                     <li className="navigation__item">
@@ -39,11 +41,19 @@ const Navbar = () => {
                             <span>04</span>Admin Panel
                         </Link>
                     </li>
-                    <li className="navigation__item">
-                        <Link to="/auth" className="navigation__link">
-                            <span>05</span>Sign In
-                        </Link>
-                    </li>
+                    {loggedInUser?.fullName ? (
+                        <li className="navigation__item">
+                            <Link to="/profile" className="navigation__link">
+                                <span>05</span> {loggedInUser.fullName}
+                            </Link>
+                        </li>
+                    ) : (
+                        <li className="navigation__item">
+                            <Link to="/auth" className="navigation__link">
+                                <span>05</span>Sign In
+                            </Link>
+                        </li>
+                    )}
                 </ul>
             </nav>
         </div>
