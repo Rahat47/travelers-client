@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
-import FileBase64 from "react-file-base64";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import {
     Button,
     Divider,
@@ -13,14 +12,14 @@ import {
 } from "semantic-ui-react";
 import "./Auth.scss";
 import { useAlert } from "react-alert";
-import { createUser, loginExistingUser } from "../../../API";
+import { createUser, loginExistingUser, uploadImage } from "../../../API";
 import { TravelersContext } from "../../../App";
 const initialState = {
     fullName: "",
     email: "",
     password: "",
     confirmPassword: "",
-    image: "",
+    image: `https://avatars.dicebear.com/api/avataaars/${Math.random()}.svg`,
 };
 const Auth = () => {
     const alert = useAlert();
@@ -28,6 +27,10 @@ const Auth = () => {
     const [formData, setFormData] = useState(initialState);
     const [loading, setLoading] = useState(false);
     const { setLoggedInUser } = useContext(TravelersContext);
+    const location = useLocation();
+    const history = useHistory();
+
+    const { from } = location.state || { from: { pathname: "/" } };
     const handleFormMode = () => {
         setIsSignUp(prevMode => !prevMode);
     };
@@ -63,16 +66,35 @@ const Auth = () => {
         }
     }
 
+    const handleImageUpload = async e => {
+        const file = e.target.files[0];
+        const imageData = new FormData();
+        imageData.set("key", process.env.REACT_APP_IMGBB_API);
+        imageData.append("image", file);
+
+        try {
+            setLoading(true);
+            const data = await uploadImage(imageData);
+            const newformData = { ...formData, image: data.data.display_url };
+            setFormData(newformData);
+            setLoading(false);
+        } catch (error) {
+            alert.error(error.message);
+            setLoading(false);
+        }
+    };
     const handleFormSubmit = async e => {
         e.preventDefault();
         if (isSignUp) {
             const newUser = await createNewUser(formData);
             setLoggedInUser(newUser);
             localStorage.setItem("user", JSON.stringify(newUser));
+            history.replace(from);
         } else {
             const user = await loginUser(formData.email, formData.password);
             setLoggedInUser(user);
             localStorage.setItem("user", JSON.stringify(user));
+            history.replace(from);
         }
     };
 
@@ -190,15 +212,10 @@ const Auth = () => {
                             {isSignUp && (
                                 <Form.Field>
                                     <label>Select your image</label>
-                                    <FileBase64
+                                    <input
                                         type="file"
                                         multiple={false}
-                                        onDone={({ base64 }) => {
-                                            setFormData({
-                                                ...formData,
-                                                image: base64,
-                                            });
-                                        }}
+                                        onChange={handleImageUpload}
                                     />
                                 </Form.Field>
                             )}

@@ -1,0 +1,41 @@
+.ui.segment.tours-header {
+    height: 100vh;
+    position: relative;
+    background-image: linear-gradient(
+            to right bottom,
+            hsla(180, 79%, 46%, 0.849),
+            hsla(207, 100%, 27%, 0.849)
+        ),
+        url("../../../Images/nat-2-large.jpg") !important;
+    background-size: cover !important;
+    background-position: center;
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    margin-bottom: 50px;
+}
+
+.tours-header__logo-box {
+    position: absolute;
+    top: 2.5rem;
+    left: 2.5rem;
+}
+
+.tours-header__text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.ui.header.tours--primary--sub {
+    color: whitesmoke;
+    letter-spacing: 12px;
+    line-height: 2.5;
+    font-weight: 500;
+}
+
+.tours-container {
+    background: #f7f7f7;
+    padding: 15rem 0;
+    margin-top: -25vh;
+}

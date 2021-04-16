@@ -14,6 +14,11 @@
     backface-visibility: hidden;
     display: flex;
     flex-direction: column;
+    transition: all 400ms;
+    margin-bottom: 40px;
+    &:hover {
+        transform: scale(1.05);
+    }
 }
 
 .ui.header.card-heading-sub {
@@ -36,8 +41,8 @@
             height: 100%;
             background-image: linear-gradient(
                 to right bottom,
-                hsla(246, 94%, 51%, 0.849),
-                hsla(207, 96%, 37%, 0.849)
+                hsla(246, 95%, 15%, 0.849),
+                hsla(165, 99%, 45%, 0.849)
             );
             opacity: 0.7;
         }

@@ -1,9 +1,30 @@
-import React from "react";
-import { Container, Grid, Header } from "semantic-ui-react";
+import React, { useEffect, useState } from "react";
+import {
+    Container,
+    Dimmer,
+    Grid,
+    Header,
+    Loader,
+    Placeholder,
+    Segment,
+} from "semantic-ui-react";
 import TourCard from "./TourCard";
 import "./ToursSection.scss";
+import { bestTours } from "../../../../API";
 
 const ToursSection = () => {
+    const [tours, setTours] = useState([]);
+    useEffect(() => {
+        async function getBestTours() {
+            try {
+                const data = await bestTours();
+                setTours(data.data.data);
+            } catch (error) {
+                console.log(error.message);
+            }
+        }
+        getBestTours();
+    }, []);
     return (
         <section className="section-tours">
             <Container>
@@ -19,8 +40,29 @@ const ToursSection = () => {
 
                 <Grid centered>
                     <Grid.Row>
-                        <TourCard />
-                        <TourCard />
+                        {tours.length > 0 ? (
+                            tours.map(tr => <TourCard key={tr._id} tour={tr} />)
+                        ) : (
+                            <Segment>
+                                <Dimmer active>
+                                    <Loader />
+                                </Dimmer>
+                                <Placeholder>
+                                    <Placeholder.Header image>
+                                        <Placeholder.Line />
+                                        <Placeholder.Line />
+                                    </Placeholder.Header>
+                                    <Placeholder.Paragraph>
+                                        <Placeholder.Line />
+                                        <Placeholder.Line />
+                                        <Placeholder.Line />
+                                        <Placeholder.Line />
+                                    </Placeholder.Paragraph>
+                                </Placeholder>
+                            </Segment>
+                        )}
+                        {/* <TourCard /> */}
+                        {/* <TourCard /> */}
                     </Grid.Row>
                 </Grid>
             </Container>

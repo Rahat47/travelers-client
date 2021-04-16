@@ -1,10 +1,20 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useAlert } from "react-alert";
+import { Link, useHistory } from "react-router-dom";
+import { Button } from "semantic-ui-react";
 import { TravelersContext } from "../../../App";
 import "./Navbar.scss";
 
 const Navbar = () => {
-    const { loggedInUser } = useContext(TravelersContext);
+    const history = useHistory();
+    const alert = useAlert();
+    const { loggedInUser, setLoggedInUser } = useContext(TravelersContext);
+    const logout = () => {
+        setLoggedInUser(null);
+        localStorage.clear();
+        alert.info("You are successfully logged Out.");
+        history.push("/");
+    };
     return (
         <div className="navigation">
             <input
@@ -22,31 +32,45 @@ const Navbar = () => {
             <nav className="navigation__nav">
                 <ul className="navigation__list">
                     <li className="navigation__item">
-                        <Link to="/about" className="navigation__link">
-                            <span>01</span> About Us
-                        </Link>
-                    </li>
-                    <li className="navigation__item">
                         <Link to="/tours" className="navigation__link">
-                            <span>02</span>Our Tours
+                            <span>01</span> Our Tours
                         </Link>
                     </li>
                     <li className="navigation__item">
-                        <Link to="/reviews" className="navigation__link">
-                            <span>03</span>Tour Reviews
+                        <Link to="/orders" className="navigation__link">
+                            <span>02</span> Manage Orders
                         </Link>
                     </li>
-                    <li className="navigation__item">
-                        <Link to="/admin" className="navigation__link">
-                            <span>04</span>Admin Panel
-                        </Link>
-                    </li>
-                    {loggedInUser?.fullName ? (
+
+                    {loggedInUser?.role === "admin" ? (
                         <li className="navigation__item">
-                            <Link to="/profile" className="navigation__link">
-                                <span>05</span> {loggedInUser.fullName}
+                            <Link to="/admin" className="navigation__link">
+                                <span>04</span>Admin Panel
                             </Link>
                         </li>
+                    ) : (
+                        <li className="navigation__item">
+                            <Link to="/dashboard" className="navigation__link">
+                                <span>04</span>User Dashboard
+                            </Link>
+                        </li>
+                    )}
+                    {loggedInUser?.fullName ? (
+                        <>
+                            <li className="navigation__item">
+                                <Link
+                                    to="/profile"
+                                    className="navigation__link"
+                                >
+                                    <span>05</span> {loggedInUser.fullName}
+                                </Link>
+                            </li>
+                            <li className="navigation__item">
+                                <Button onClick={logout} size="big" negative>
+                                    Log Out
+                                </Button>
+                            </li>
+                        </>
                     ) : (
                         <li className="navigation__item">
                             <Link to="/auth" className="navigation__link">
