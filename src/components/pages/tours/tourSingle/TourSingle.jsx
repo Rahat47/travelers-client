@@ -1,11 +1,42 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { Button } from "semantic-ui-react";
+import { getReviewByTourId, singleTour } from "../../../../API";
 import { TravelersContext } from "../../../../App";
+import TourBooking from "../tourBooking/TourBooking";
 import "./TourSingle.scss";
+import TourSingleDetails from "./TourSingleDetails";
 import TourSingleHeader from "./TourSingleHeader";
+import TourSingleReviews from "./TourSingleReviews";
 const TourSingle = () => {
+    const { id } = useParams();
     const { loggedInUser, setLoggedInUser } = useContext(TravelersContext);
+    const [tour, setTour] = useState({});
+    const [reviews, setReviews] = useState([]);
+
+    useEffect(() => {
+        async function getSinleTour(id) {
+            try {
+                const data = await singleTour(id);
+                setTour(data.data.tour);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        getSinleTour(id);
+    }, [id]);
+
+    useEffect(() => {
+        async function getReviewForTour(id) {
+            try {
+                const data = await getReviewByTourId(id);
+                setReviews(data.data.reviews);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        getReviewForTour(id);
+    }, [id]);
 
     return (
         <div>
@@ -37,7 +68,10 @@ const TourSingle = () => {
                     </Link>
                 </nav>
             </header>
-            <TourSingleHeader />
+            <TourSingleHeader tour={tour} />
+            <TourSingleDetails tour={tour} />
+            <TourSingleReviews reviews={reviews} />
+            <TourBooking tour={tour} />
         </div>
     );
 };

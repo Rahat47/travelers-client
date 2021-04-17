@@ -48,3 +48,89 @@
 .ui.negative.button.nav__el {
     margin-right: 1.25rem;
 }
+
+.ui.segment.single-tour-header {
+    height: 100vh;
+    position: relative;
+    background-image: linear-gradient(
+            to right bottom,
+            hsla(180, 65%, 59%, 0.849),
+            hsla(207, 96%, 37%, 0.849)
+        ),
+        url("../../../../Images/nat-1-large.jpg") !important;
+    background-size: cover !important;
+    clip-path: polygon(0 0, 100% 0, 100% 88vh, 0 100%);
+}
+
+.ui.header.single-tour-header {
+    font-size: 4rem;
+    text-align: center;
+    margin: 0 auto;
+    text-transform: uppercase;
+    font-weight: 300;
+
+    & span {
+        background-image: linear-gradient(
+            to bottom right,
+            rgba(10, 184, 207, 0.85),
+            rgba(0, 17, 173, 0.85)
+        );
+        padding: 1rem 1.5rem;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        line-height: 1.2;
+    }
+}
+
+.single-description {
+    padding: 10rem 0;
+}
+
+.ui.message.tour-description {
+    letter-spacing: 2px;
+    line-height: 1.5;
+    font-size: 1.2rem;
+}
+
+.reviews__card {
+    margin: 0 auto;
+    padding: 2rem;
+    width: 50%;
+    background-color: #f7f7f7;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reviews__avatar {
+    display: flex;
+    align-items: center;
+
+    &-img {
+        width: auto !important;
+        height: 4.5rem;
+        border-radius: 50%;
+        margin-right: 1.5rem;
+    }
+}
+
+.reviews__text {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.reviews__user {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.reviews__rating {
+    display: flex;
+    padding: 2rem;
+    font-size: 3rem;
+}

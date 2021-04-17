@@ -2,6 +2,7 @@ import axios from 'axios'
 
 const toursEndpoint = 'http://localhost:5000/tours'
 const userEndpoint = 'http://localhost:5000/users'
+const reviewsEndpoint = 'http://localhost:5000/reviews'
 const imgbbEndpoint = 'https://api.imgbb.com/1/upload'
 
 //IMGBB IMAGE UPLOAD
@@ -28,6 +29,16 @@ export const getAllTours = async () => {
 export const bestTours = async () => {
     try {
         const { data } = await axios.get(`${toursEndpoint}/best-tours`)
+        return data
+    } catch (error) {
+        throw new Error(error.response.data.message)
+
+    }
+}
+
+export const singleTour = async (id) => {
+    try {
+        const { data } = await axios.get(`${toursEndpoint}/${id}`)
         return data
     } catch (error) {
         throw new Error(error.response.data.message)
@@ -63,5 +74,37 @@ export const loginExistingUser = async (loginData) => {
         return response.data
     } catch (error) {
         throw new Error(error.response.data.message)
+    }
+}
+
+
+//Reviews
+
+// export const insertAllReviews = async (reviews) => {
+//     try {
+//         const { data } = await axios.post(reviewsEndpoint, reviews)
+//         return data
+//     } catch (error) {
+//         throw new Error(error.response.data.message)
+
+//     }
+// }
+
+export const getReviewByTourId = async (id) => {
+    try {
+        const { data } = await axios.get(`${reviewsEndpoint}/${id}`)
+        return data
+    } catch (error) {
+        throw new Error(error.response.data.message)
+    }
+}
+
+export const getFiveLatestReviews = async () => {
+    try {
+        const { data } = await axios.get(`${reviewsEndpoint}/get-five-latest`)
+        return data
+    } catch (error) {
+        throw new Error(error.response.data.message)
+
     }
 }

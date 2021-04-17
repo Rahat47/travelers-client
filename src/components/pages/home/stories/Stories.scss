@@ -22,7 +22,7 @@
 }
 
 .story {
-    width: 75%;
+    width: 60%;
     margin: 5rem auto;
     box-shadow: 0 1.875rem 3.75rem rgba(#000, 0.1);
     background-color: rgba(255, 255, 255, 0.6);
@@ -37,7 +37,7 @@
         float: left;
         shape-outside: circle(50% at 50% 50%);
         clip-path: circle(50% at 50% 50%);
-        transform: translateX(-1.875rem) skew(12deg);
+        transform: translateX(-1.875rem) translateY(-2rem) skew(12deg);
         position: relative;
     }
 

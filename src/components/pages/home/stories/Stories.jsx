@@ -18,6 +18,17 @@ const Stories = () => {
                 className="heading-secondary"
                 content="We make people genuinely happy"
             />
+            <Header
+                textAlign="center"
+                color="red"
+                size="huge"
+                content="Let's Hear From Our Last 5 Adventurers"
+                style={{
+                    fontWeight: 300,
+                    textTransform: "uppercase",
+                    letterSpacing: "2px",
+                }}
+            />
 
             <Testimonials />
         </section>

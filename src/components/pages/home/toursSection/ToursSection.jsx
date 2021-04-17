@@ -61,8 +61,6 @@ const ToursSection = () => {
                                 </Placeholder>
                             </Segment>
                         )}
-                        {/* <TourCard /> */}
-                        {/* <TourCard /> */}
                     </Grid.Row>
                 </Grid>
             </Container>
