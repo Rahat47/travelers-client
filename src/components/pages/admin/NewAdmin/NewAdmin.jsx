@@ -1,9 +1,28 @@
 import React, { useEffect, useState } from "react";
+import { useAlert } from "react-alert";
 import { Divider, Form, Grid, Header, Table } from "semantic-ui-react";
-import { getAdmins } from "../../../../API";
+import { getAdmins, makeNewAdmin } from "../../../../API";
 
 const NewAdmin = () => {
+    const alert = useAlert();
     const [admins, setAdmins] = useState([]);
+
+    const [email, setEmail] = useState("");
+
+    const newAdmin = async email => {
+        try {
+            const data = await makeNewAdmin(email);
+            if (!data) return null;
+
+            const newAdmins = Array.from(admins);
+            newAdmins.push(data.data.user);
+            setAdmins(newAdmins);
+            alert.success("New Admin Added Successfully.");
+        } catch (error) {
+            alert.error(error.message);
+            console.log(error);
+        }
+    };
 
     useEffect(() => {
         async function getAdmin() {
@@ -26,17 +45,18 @@ const NewAdmin = () => {
                     </Header>
 
                     <Header color="orange" sub>
-                        This email must exist in our system as an User before
-                        you can add them as an Admin
+                        This email must exist in our system before you can add
+                        them as an Admin
                     </Header>
 
                     <Divider />
 
-                    <Form>
+                    <Form onSubmit={() => newAdmin(email)}>
                         <Form.Input
                             required
                             placeholder="Enter the desired person's email address"
                             name="email"
+                            onChange={e => setEmail(e.target.value)}
                         />
                         <Form.Button primary content="submit" />
                     </Form>

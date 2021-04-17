@@ -88,6 +88,16 @@ export const getAdmins = async () => {
 }
 
 
+export const makeNewAdmin = async (email) => {
+    try {
+        const { data } = await axios.patch(`${userEndpoint}/make-admin`, { email })
+        return data
+    } catch (error) {
+        throw new Error(error.response.data.message)
+    }
+}
+
+
 //!Reviews
 
 // export const insertAllReviews = async (reviews) => {

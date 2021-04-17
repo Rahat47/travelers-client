@@ -16,7 +16,7 @@ const TourSingleReviews = ({ reviews }) => {
             <Header
                 textAlign="center"
                 className="heading-secondary"
-                content="What Our Amazing Have To Say"
+                content="What Our Amazing Travelers Have To Say"
             />
             <Divider hidden />
             <Grid container centered>
