@@ -2,8 +2,8 @@ import React from "react";
 import { Divider, Grid, Header, Segment } from "semantic-ui-react";
 import bgVideo from "../../../../Images/video.mp4";
 import { Carousel } from "react-responsive-carousel";
+import ReviewCard from "../reviewCard/ReviewCard";
 
-import ReviewCard from "./ReviewCard";
 const TourSingleReviews = ({ reviews }) => {
     return (
         <section className="section-stories">

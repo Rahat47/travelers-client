@@ -39,6 +39,7 @@
         font-family: inherit;
 
         &:hover {
+            color: whitesmoke;
             transform: translateY(-2px);
             text-shadow: 0 0.7rem 1rem black;
         }
@@ -52,12 +53,6 @@
 .ui.segment.single-tour-header {
     height: 100vh;
     position: relative;
-    background-image: linear-gradient(
-            to right bottom,
-            hsla(180, 65%, 59%, 0.849),
-            hsla(207, 96%, 37%, 0.849)
-        ),
-        url("../../../../Images/nat-1-large.jpg") !important;
     background-size: cover !important;
     clip-path: polygon(0 0, 100% 0, 100% 88vh, 0 100%);
 }

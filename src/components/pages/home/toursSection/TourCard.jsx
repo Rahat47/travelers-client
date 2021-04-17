@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Button, Card, Grid, Header, Icon, Popup } from "semantic-ui-react";
-import tourCover from "../../../../Images/nat-3.jpg";
 const TourCard = ({ tour }) => {
     return (
         <Grid.Column computer="8" tablet="16" mobile="16">
@@ -10,7 +9,7 @@ const TourCard = ({ tour }) => {
                         <div className="card__picture-overlay">&nbsp;</div>
                         <img
                             alt={tour.name}
-                            src={tourCover}
+                            src={tour.imageCover}
                             className="card__picture-img"
                         />
                     </div>

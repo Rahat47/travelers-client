@@ -5,7 +5,7 @@ const userEndpoint = 'http://localhost:5000/users'
 const reviewsEndpoint = 'http://localhost:5000/reviews'
 const imgbbEndpoint = 'https://api.imgbb.com/1/upload'
 
-//IMGBB IMAGE UPLOAD
+//!IMGBB IMAGE UPLOAD
 export const uploadImage = async (imageData) => {
     try {
         const { data } = await axios.post(imgbbEndpoint, imageData)
@@ -16,7 +16,7 @@ export const uploadImage = async (imageData) => {
 }
 
 
-//Tours
+//!Tours
 export const getAllTours = async () => {
     try {
         const { data } = await axios.get(toursEndpoint)
@@ -57,7 +57,7 @@ export const singleTour = async (id) => {
 // }
 
 
-//Users
+//!Users
 
 export const createUser = async (userProps) => {
     try {
@@ -77,8 +77,18 @@ export const loginExistingUser = async (loginData) => {
     }
 }
 
+export const getAdmins = async () => {
+    try {
+        const { data } = await axios.get(`${userEndpoint}/get-admins`)
+        return data
+    } catch (error) {
+        throw new Error(error.response.data.message)
 
-//Reviews
+    }
+}
+
+
+//!Reviews
 
 // export const insertAllReviews = async (reviews) => {
 //     try {
@@ -105,6 +115,5 @@ export const getFiveLatestReviews = async () => {
         return data
     } catch (error) {
         throw new Error(error.response.data.message)
-
     }
 }

@@ -40,7 +40,16 @@ const TourSingle = () => {
 
     return (
         <div>
-            <header className="tour-single-header">
+            <header
+                className="tour-single-header"
+                style={{
+                    backgroundImage: `linear-gradient(
+                    to right bottom,
+                    hsla(180, 65%, 59%, 0.849),
+                    hsla(207, 96%, 37%, 0.849)
+                )`,
+                }}
+            >
                 <nav className="nav nav--tours">
                     <Link to="/tours" className="nav__el">
                         All tours

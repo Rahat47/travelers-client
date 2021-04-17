@@ -57,6 +57,9 @@ const Auth = () => {
             };
             const data = await loginExistingUser(loginData);
             const user = data.data.user;
+            if (!user) {
+                return null;
+            }
             alert.success(`Welcome back ${user.fullName}`);
             setLoading(false);
             return user;
@@ -86,12 +89,23 @@ const Auth = () => {
     const handleFormSubmit = async e => {
         e.preventDefault();
         if (isSignUp) {
+            //Validation checks
+            if (formData.password !== formData.confirmPassword) {
+                return alert.error("Password & Password Confirm do not match");
+            }
+
             const newUser = await createNewUser(formData);
+            if (!newUser) {
+                return null;
+            }
             setLoggedInUser(newUser);
             localStorage.setItem("user", JSON.stringify(newUser));
             history.replace(from);
         } else {
             const user = await loginUser(formData.email, formData.password);
+            if (!user) {
+                return null;
+            }
             setLoggedInUser(user);
             localStorage.setItem("user", JSON.stringify(user));
             history.replace(from);

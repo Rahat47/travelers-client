@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import { transitions, positions, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
 import Auth from './components/pages/Auth/Auth';
@@ -7,9 +7,12 @@ import { createContext, useState } from 'react';
 import PrivateRoute from './utils/PrivateRoute'
 import Tours from './components/pages/tours/Tours';
 import TourSingle from './components/pages/tours/tourSingle/TourSingle';
+import ScrollToTop from './components/shared/scrolltotop/ScrollToTop';
+import Admin from './components/pages/admin/Admin';
 
 export const TravelersContext = createContext()
 function App() {
+
   const options = {
     position: positions.TOP_CENTER,
     timeout: 10000,
@@ -24,6 +27,7 @@ function App() {
         zIndex: 999999
       }} >
         <Router>
+          <ScrollToTop />
           <Switch>
             <Route exact path={["/", "/home"]} component={Home} />
             <Route exact path={["/auth", "/login", "/signup"]} component={Auth} />
@@ -32,6 +36,9 @@ function App() {
             </PrivateRoute>
             <PrivateRoute exact path="/tours/:id">
               <TourSingle />
+            </PrivateRoute>
+            <PrivateRoute exact path="/admin">
+              {loggedInUser?.role !== "admin" ? <Redirect to="/" /> : <Admin />}
             </PrivateRoute>
           </Switch>
         </Router>

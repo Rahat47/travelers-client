@@ -8,7 +8,6 @@ import {
     Segment,
 } from "semantic-ui-react";
 import "./TourBooking.scss";
-import ctaImg from "../../../../Images/nat-3-large.jpg";
 
 const TourBooking = ({ tour }) => {
     return (
@@ -16,7 +15,7 @@ const TourBooking = ({ tour }) => {
             <Segment className="cta">
                 <Grid centered verticalAlign="middle">
                     <Grid.Column computer="6">
-                        <Image fluid src={ctaImg} />
+                        <Image fluid src={tour.imageCover} />
                     </Grid.Column>
                     <Grid.Column computer="7">
                         <Header className="cta-heading">
