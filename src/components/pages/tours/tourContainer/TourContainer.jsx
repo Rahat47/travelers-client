@@ -20,7 +20,7 @@ const TourContainer = () => {
 
     return (
         <div className="tours-container">
-            <Grid container>
+            <Grid container stretched>
                 {tours.length > 0 ? (
                     tours.map(tr => <TourCard key={tr._id} tour={tr} />)
                 ) : (

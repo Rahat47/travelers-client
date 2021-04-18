@@ -46,6 +46,15 @@ export const singleTour = async (id) => {
     }
 }
 
+export const insertNewTour = async (tourData) => {
+    try {
+        const { data } = await axios.post(toursEndpoint, tourData)
+        return data
+    } catch (error) {
+        throw new Error(error.response.data.message)
+    }
+}
+
 
 // export const uploadAllTour = async (tours) => {
 //     try {

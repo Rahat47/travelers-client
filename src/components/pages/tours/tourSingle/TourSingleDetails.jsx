@@ -58,7 +58,11 @@ const TourSingleDetails = ({ tour }) => {
                                     <Icon name="crosshairs" size="big" />
                                 </Table.Cell>
                                 <Table.Cell>DIFFICULTY</Table.Cell>
-                                <Table.Cell>{tour.difficulty}</Table.Cell>
+                                <Table.Cell>
+                                    <Label color="orange">
+                                        {tour?.difficulty}
+                                    </Label>
+                                </Table.Cell>
                             </Table.Row>
                             <Table.Row>
                                 <Table.Cell textAlign="center">

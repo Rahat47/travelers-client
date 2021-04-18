@@ -6,11 +6,12 @@ import { TravelersContext } from "../../../../App";
 import AdminOrders from "../AdminOrders/AdminOrders";
 import ManageTours from "../ManageTours/ManageTours";
 import NewAdmin from "../NewAdmin/NewAdmin";
+import AddNewTour from "../AddNewTour/AddNewTour";
 const AdminSidebar = () => {
     const { loggedInUser } = useContext(TravelersContext);
     const panes = [
         {
-            menuItem: "Orders",
+            menuItem: "Orders 💰",
             render: () => (
                 <Tab.Pane>
                     <AdminOrders />
@@ -18,7 +19,7 @@ const AdminSidebar = () => {
             ),
         },
         {
-            menuItem: "Manage Tours",
+            menuItem: "Manage Tours 🤵",
             render: () => (
                 <Tab.Pane>
                     {" "}
@@ -27,7 +28,7 @@ const AdminSidebar = () => {
             ),
         },
         {
-            menuItem: "Add New Admin",
+            menuItem: `Add New Admin 🛡`,
             render: () => (
                 <Tab.Pane>
                     <NewAdmin />
@@ -35,8 +36,13 @@ const AdminSidebar = () => {
             ),
         },
         {
-            menuItem: "Add New Tour",
-            render: () => <Tab.Pane>Tab 4 Content</Tab.Pane>,
+            menuItem: "Add New Tour ➕",
+            render: () => (
+                <Tab.Pane>
+                    {" "}
+                    <AddNewTour />{" "}
+                </Tab.Pane>
+            ),
         },
     ];
     let [activeTab, setActiveTab] = useState(panes[0].menuItem);
@@ -69,7 +75,14 @@ const AdminSidebar = () => {
             </Segment>
             <Tab
                 renderActiveOnly
-                menu={{ fluid: true, vertical: true, tabular: true }}
+                menu={{
+                    fluid: true,
+                    color: "orange",
+                    size: "huge",
+                    vertical: true,
+                    pointing: true,
+                    tabular: true,
+                }}
                 panes={panes}
                 onTabChange={handleTabChange}
             />

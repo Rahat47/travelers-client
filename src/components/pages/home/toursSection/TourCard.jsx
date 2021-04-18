@@ -8,8 +8,8 @@ const TourCard = ({ tour }) => {
                     <div className="card__picture">
                         <div className="card__picture-overlay">&nbsp;</div>
                         <img
-                            alt={tour.name}
-                            src={tour.imageCover}
+                            alt={tour?.name}
+                            src={tour?.imageCover}
                             className="card__picture-img"
                         />
                     </div>
@@ -17,16 +17,16 @@ const TourCard = ({ tour }) => {
                     <Header
                         className="tour-title"
                         textAlign="center"
-                        content={tour.name}
+                        content={tour?.name}
                         size="huge"
                     />
                 </div>
 
                 <Card.Description textAlign="center" className="card__details">
                     <h4 className="card__sub-heading">
-                        {tour.difficulty} {tour.duration}-day tour
+                        {tour?.difficulty} {tour?.duration}-day tour
                     </h4>
-                    <p className="card__text">{tour.summary}</p>
+                    <p className="card__text">{tour?.summary}</p>
                     <Popup
                         position="top center"
                         inverted
@@ -34,7 +34,7 @@ const TourCard = ({ tour }) => {
                         trigger={
                             <div className="card__data">
                                 <Icon name="map marker alternate" color="red" />{" "}
-                                <span>{tour.startLocation}</span>
+                                <span>{tour?.startLocation}</span>
                             </div>
                         }
                     />
@@ -47,7 +47,7 @@ const TourCard = ({ tour }) => {
                                 />{" "}
                                 <span>
                                     {new Date(
-                                        tour.startDates[0]
+                                        tour?.startDates[0]
                                     ).toDateString()}
                                 </span>
                             </div>
@@ -62,7 +62,7 @@ const TourCard = ({ tour }) => {
                     </div>
                     <div className="card__data">
                         <Icon name="user" color="green" />
-                        <span>{tour.maxGroupSize} people</span>
+                        <span>{tour?.maxGroupSize} people</span>
                     </div>
                 </Card.Description>
 
@@ -70,17 +70,17 @@ const TourCard = ({ tour }) => {
                     <p>
                         <Icon name="dollar" />
                         <span className="card__footer-value">
-                            {tour.price}{" "}
+                            {tour?.price}{" "}
                         </span>
                         <span className="card__footer-text">per person</span>
                     </p>
                     <p className="card__ratings">
                         <Icon name="star" color="yellow" />
                         <span className="card__footer-value">
-                            {tour.ratingsAverage}{" "}
+                            {tour?.ratingsAverage}{" "}
                         </span>
                         <span className="card__footer-text">
-                            rating ({tour.ratingsQuantity})
+                            rating ({tour?.ratingsQuantity})
                         </span>
                     </p>
                     <Button
