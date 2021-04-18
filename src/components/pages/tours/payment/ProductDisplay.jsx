@@ -1,6 +1,7 @@
+import { Button } from "semantic-ui-react";
 import "./ProductDisplay.scss";
 
-const ProductDisplay = ({ handleClick, tour }) => (
+const ProductDisplay = ({ handleClick, tour, disabled, loading }) => (
     <section className="checkout">
         <div className="product">
             <img
@@ -13,14 +14,16 @@ const ProductDisplay = ({ handleClick, tour }) => (
                 <h5 className="product__price">${tour.price}</h5>
             </div>
         </div>
-        <button
-            type="button"
-            id="checkout-button"
+
+        <Button
+            positive
+            loading={loading}
+            disabled={disabled}
             role="link"
             onClick={handleClick}
         >
             Checkout
-        </button>
+        </Button>
     </section>
 );
 

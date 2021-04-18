@@ -3,6 +3,7 @@ import axios from 'axios'
 const toursEndpoint = 'http://localhost:5000/tours'
 const userEndpoint = 'http://localhost:5000/users'
 const reviewsEndpoint = 'http://localhost:5000/reviews'
+const ordersEndpoint = 'http://localhost:5000/orders'
 const imgbbEndpoint = 'https://api.imgbb.com/1/upload'
 
 //!IMGBB IMAGE UPLOAD
@@ -141,10 +142,25 @@ export const getFiveLatestReviews = async () => {
 //!Payment 
 
 export const paymentRequest = async (tour) => {
+
     try {
         const { data } = await axios.post("http://localhost:5000/chekcout/stripe", tour)
         return data
+
     } catch (error) {
         throw new Error(error.response.data.message)
+    }
+}
+
+
+//!Orders
+
+export const createNewOrder = async (orderDetails) => {
+    try {
+        const { data } = await axios.post(ordersEndpoint, orderDetails)
+        return data
+    } catch (error) {
+        throw new Error(error.response.data.message)
+
     }
 }
