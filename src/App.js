@@ -11,6 +11,8 @@ import ScrollToTop from './components/shared/scrolltotop/ScrollToTop';
 import Admin from './components/pages/admin/Admin';
 import Checkout from './components/pages/checkout/Checkout';
 import Reviews from './components/pages/reviews/Reviews';
+import ManageOrders from './components/pages/ordersPage/ManageOrders';
+import UserDashboard from './components/pages/userDashboard/UserDashboard';
 
 export const TravelersContext = createContext()
 function App() {
@@ -54,6 +56,14 @@ function App() {
 
             <PrivateRoute exact path="/checkout/:id">
               <Checkout />
+            </PrivateRoute>
+
+            <PrivateRoute exact path="/orders">
+              <ManageOrders />
+            </PrivateRoute>
+
+            <PrivateRoute exact path="/dashboard">
+              <UserDashboard />
             </PrivateRoute>
 
           </Switch>

@@ -1,47 +1,37 @@
 import React, { useContext, useState } from "react";
 import { Grid, Header, Segment, Tab } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import { TravelersContext } from "../../../../App";
-import AdminOrders from "../AdminOrders/AdminOrders";
-import ManageTours from "../ManageTours/ManageTours";
-import NewAdmin from "../NewAdmin/NewAdmin";
-import AddNewTour from "../AddNewTour/AddNewTour";
-const AdminSidebar = () => {
+import { TravelersContext } from "../../../App";
+import UserReviews from "./userReviews/UserReviews";
+import ManageOrders from "../ordersPage/ManageOrders";
+import AddNewReview from "./userAddReview/AddNewReview";
+
+const UserDashboard = () => {
     const { loggedInUser } = useContext(TravelersContext);
-    const [action, setAction] = useState(false);
 
     const panes = [
         {
             menuItem: "Orders 💰",
             render: () => (
                 <Tab.Pane>
-                    <AdminOrders action={action} setAction={setAction} />
+                    <ManageOrders />
                 </Tab.Pane>
             ),
         },
         {
-            menuItem: "Manage Tours 🤵",
+            menuItem: "Your Reviews 🗯",
             render: () => (
                 <Tab.Pane>
                     {" "}
-                    <ManageTours action={action} setAction={setAction} />{" "}
+                    <UserReviews />{" "}
                 </Tab.Pane>
             ),
         },
         {
-            menuItem: `Add New Admin 🛡`,
+            menuItem: `Add New Review 🌟`,
             render: () => (
                 <Tab.Pane>
-                    <NewAdmin />
-                </Tab.Pane>
-            ),
-        },
-        {
-            menuItem: "Add New Tour ➕",
-            render: () => (
-                <Tab.Pane>
-                    {" "}
-                    <AddNewTour />{" "}
+                    <AddNewReview />
                 </Tab.Pane>
             ),
         },
@@ -91,4 +81,4 @@ const AdminSidebar = () => {
     );
 };
 
-export default AdminSidebar;
+export default UserDashboard;

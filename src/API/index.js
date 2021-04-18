@@ -132,6 +132,16 @@ export const makeNewAdmin = async (email) => {
 //     }
 // }
 
+export const createNewReview = async (reviewData) => {
+    try {
+        const { data } = await axios.post(reviewsEndpoint, reviewData)
+        return data
+    } catch (error) {
+        throw new Error(error.response.data.message)
+    }
+}
+
+
 export const getReviewByTourId = async (id) => {
     try {
         const { data } = await axios.get(`${reviewsEndpoint}/${id}`)
@@ -153,6 +163,16 @@ export const getFiveLatestReviews = async () => {
 export const getAllReviews = async () => {
     try {
         const { data } = await axios.get(reviewsEndpoint)
+        return data
+    } catch (error) {
+        throw new Error(error.response.data.message)
+
+    }
+}
+
+export const getReviewsByUser = async (userName) => {
+    try {
+        const { data } = await axios.get(`${reviewsEndpoint}/by-user/${userName}`)
         return data
     } catch (error) {
         throw new Error(error.response.data.message)
@@ -204,5 +224,15 @@ export const updateOrder = async (updatedData, orderId) => {
     } catch (error) {
         throw new Error(error.response.data.message)
 
+    }
+}
+
+
+export const getOrdersByEmail = async (email) => {
+    try {
+        const { data } = await axios.get(`${ordersEndpoint}/by-email/${email}`)
+        return data
+    } catch (error) {
+        throw new Error(error.response.data.message)
     }
 }

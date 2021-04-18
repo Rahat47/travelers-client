@@ -146,6 +146,12 @@ const Auth = () => {
                             textAlign="center"
                             color="blue"
                         />
+
+                        <Message info>
+                            Password for programminghero001@gmail.com is
+                            "SuperAdmin"
+                        </Message>
+
                         {isSignUp ? (
                             <Header
                                 size="huge"
