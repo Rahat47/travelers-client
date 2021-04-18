@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router";
 import {
     Button,
     Container,
@@ -10,6 +11,7 @@ import {
 import "./TourBooking.scss";
 
 const TourBooking = ({ tour }) => {
+    const history = useHistory();
     return (
         <Container className="cta-section">
             <Segment className="cta">
@@ -27,7 +29,14 @@ const TourBooking = ({ tour }) => {
                         </p>
                     </Grid.Column>
                     <Grid.Column textAlign="center" computer="3">
-                        <Button size="huge" positive animated="fade">
+                        <Button
+                            onClick={() =>
+                                history.push(`/checkout/${tour._id}`)
+                            }
+                            size="huge"
+                            positive
+                            animated="fade"
+                        >
                             <Button.Content visible>Book Now!!</Button.Content>
                             <Button.Content hidden>
                                 ${tour.price} per person

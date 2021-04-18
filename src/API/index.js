@@ -136,3 +136,15 @@ export const getFiveLatestReviews = async () => {
         throw new Error(error.response.data.message)
     }
 }
+
+
+//!Payment 
+
+export const paymentRequest = async (tour) => {
+    try {
+        const { data } = await axios.post("http://localhost:5000/chekcout/stripe", tour)
+        return data
+    } catch (error) {
+        throw new Error(error.response.data.message)
+    }
+}
