@@ -1,8 +1,23 @@
 import React from "react";
+import { useAlert } from "react-alert";
 import { Link } from "react-router-dom";
 import { Button, Divider, Icon, Item, Label, Popup } from "semantic-ui-react";
+import { deleteATour } from "../../../../API";
 
-const TourItems = ({ tour }) => {
+const TourItems = ({ tour, setAction, action }) => {
+    const alert = useAlert();
+
+    const deleteSelectedTour = async id => {
+        try {
+            await deleteATour(id);
+            alert.success("Tour Deleted Successfully");
+            setAction(!action);
+        } catch (error) {
+            console.log(error);
+            alert.error(error.message);
+        }
+    };
+
     return (
         <>
             <Divider hidden />
@@ -33,7 +48,13 @@ const TourItems = ({ tour }) => {
                             content={`Delete ${tour.name}`}
                             inverted
                             trigger={
-                                <Button negative icon floated="right" circular>
+                                <Button
+                                    onClick={() => deleteSelectedTour(tour._id)}
+                                    negative
+                                    icon
+                                    floated="right"
+                                    circular
+                                >
                                     <Icon name="trash alternate" />
                                 </Button>
                             }

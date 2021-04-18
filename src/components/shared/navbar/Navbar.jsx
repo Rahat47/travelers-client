@@ -36,11 +36,19 @@ const Navbar = () => {
                             <span>01</span> Our Tours
                         </Link>
                     </li>
-                    <li className="navigation__item">
-                        <Link to="/orders" className="navigation__link">
-                            <span>02</span> Manage Orders
-                        </Link>
-                    </li>
+                    {loggedInUser?.role === "admin" ? (
+                        <li className="navigation__item">
+                            <Link to="/reviews" className="navigation__link">
+                                <span>02</span> Reviews
+                            </Link>
+                        </li>
+                    ) : (
+                        <li className="navigation__item">
+                            <Link to="/orders" className="navigation__link">
+                                <span>02</span> Manage Orders
+                            </Link>
+                        </li>
+                    )}
 
                     {loggedInUser?.role === "admin" ? (
                         <li className="navigation__item">

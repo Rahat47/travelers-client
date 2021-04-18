@@ -3,7 +3,7 @@ import { Header, Item } from "semantic-ui-react";
 import { getAllTours } from "../../../../API";
 import TourItems from "./TourItems";
 
-const ManageTours = () => {
+const ManageTours = ({ action, setAction }) => {
     const [tours, setTours] = useState([]);
 
     useEffect(() => {
@@ -16,7 +16,7 @@ const ManageTours = () => {
             }
         }
         getTours();
-    }, []);
+    }, [action]);
     return (
         <>
             <Header textAlign="center">All Available Tours</Header>
@@ -24,7 +24,12 @@ const ManageTours = () => {
             <Item.Group>
                 {tours.length > 0
                     ? tours.map(tour => (
-                          <TourItems key={tour._id} tour={tour} />
+                          <TourItems
+                              action={action}
+                              setAction={setAction}
+                              key={tour._id}
+                              tour={tour}
+                          />
                       ))
                     : "Loading..."}
             </Item.Group>

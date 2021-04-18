@@ -9,12 +9,14 @@ import NewAdmin from "../NewAdmin/NewAdmin";
 import AddNewTour from "../AddNewTour/AddNewTour";
 const AdminSidebar = () => {
     const { loggedInUser } = useContext(TravelersContext);
+    const [action, setAction] = useState(false);
+
     const panes = [
         {
             menuItem: "Orders 💰",
             render: () => (
                 <Tab.Pane>
-                    <AdminOrders />
+                    <AdminOrders action={action} setAction={setAction} />
                 </Tab.Pane>
             ),
         },
@@ -23,7 +25,7 @@ const AdminSidebar = () => {
             render: () => (
                 <Tab.Pane>
                     {" "}
-                    <ManageTours />{" "}
+                    <ManageTours action={action} setAction={setAction} />{" "}
                 </Tab.Pane>
             ),
         },

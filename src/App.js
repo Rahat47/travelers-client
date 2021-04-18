@@ -10,6 +10,7 @@ import TourSingle from './components/pages/tours/tourSingle/TourSingle';
 import ScrollToTop from './components/shared/scrolltotop/ScrollToTop';
 import Admin from './components/pages/admin/Admin';
 import Checkout from './components/pages/checkout/Checkout';
+import Reviews from './components/pages/reviews/Reviews';
 
 export const TravelersContext = createContext()
 function App() {
@@ -45,6 +46,10 @@ function App() {
 
             <PrivateRoute exact path="/admin">
               {loggedInUser?.role !== "admin" ? <Redirect to="/" /> : <Admin />}
+            </PrivateRoute>
+
+            <PrivateRoute exact path="/reviews">
+              {loggedInUser?.role !== "admin" ? <Redirect to="/" /> : <Reviews />}
             </PrivateRoute>
 
             <PrivateRoute exact path="/checkout/:id">

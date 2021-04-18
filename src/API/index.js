@@ -1,9 +1,13 @@
 import axios from 'axios'
 
-const toursEndpoint = 'http://localhost:5000/tours'
-const userEndpoint = 'http://localhost:5000/users'
-const reviewsEndpoint = 'http://localhost:5000/reviews'
-const ordersEndpoint = 'http://localhost:5000/orders'
+// const toursEndpoint = 'http://localhost:5000/tours'
+const toursEndpoint = 'https://travelers-mern.herokuapp.com/tours'
+// const userEndpoint = 'http://localhost:5000/users'
+const userEndpoint = 'https://travelers-mern.herokuapp.com/users'
+// const reviewsEndpoint = 'http://localhost:5000/reviews'
+const reviewsEndpoint = 'https://travelers-mern.herokuapp.com/reviews'
+// const ordersEndpoint = 'http://localhost:5000/orders'
+const ordersEndpoint = 'https://travelers-mern.herokuapp.com/orders'
 const imgbbEndpoint = 'https://api.imgbb.com/1/upload'
 
 //!IMGBB IMAGE UPLOAD
@@ -51,6 +55,14 @@ export const insertNewTour = async (tourData) => {
     try {
         const { data } = await axios.post(toursEndpoint, tourData)
         return data
+    } catch (error) {
+        throw new Error(error.response.data.message)
+    }
+}
+
+export const deleteATour = async (tourId) => {
+    try {
+        await axios.delete(`${toursEndpoint}/${tourId}`)
     } catch (error) {
         throw new Error(error.response.data.message)
     }
@@ -138,13 +150,23 @@ export const getFiveLatestReviews = async () => {
     }
 }
 
+export const getAllReviews = async () => {
+    try {
+        const { data } = await axios.get(reviewsEndpoint)
+        return data
+    } catch (error) {
+        throw new Error(error.response.data.message)
+
+    }
+}
+
 
 //!Payment 
 
 export const paymentRequest = async (tour) => {
 
     try {
-        const { data } = await axios.post("http://localhost:5000/chekcout/stripe", tour)
+        const { data } = await axios.post("https://travelers-mern.herokuapp.com/chekcout/stripe", tour)
         return data
 
     } catch (error) {
@@ -158,6 +180,26 @@ export const paymentRequest = async (tour) => {
 export const createNewOrder = async (orderDetails) => {
     try {
         const { data } = await axios.post(ordersEndpoint, orderDetails)
+        return data
+    } catch (error) {
+        throw new Error(error.response.data.message)
+
+    }
+}
+
+export const getAllOrdersFromDB = async () => {
+    try {
+        const { data } = await axios.get(ordersEndpoint)
+        return data
+    } catch (error) {
+        throw new Error(error.response.data.message)
+
+    }
+}
+
+export const updateOrder = async (updatedData, orderId) => {
+    try {
+        const { data } = await axios.patch(`${ordersEndpoint}/${orderId}`, updatedData)
         return data
     } catch (error) {
         throw new Error(error.response.data.message)
