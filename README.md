@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/Porgramming-Hero-web-course/full-stack-client-Rahat47">
+    <img src="https://i.ibb.co/6DcSpvP/logo.png" alt="Logo" width="80" height="80">
+  </a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <h3 align="center">Groceries Pro</h3>
 
-## Available Scripts
+  <p align="center">
+    A full stack web application template. Made for a small grocery like web app. Where you can buy one of every product, keep track of them in checkout and product page. This App also features firebase authentication system and also dynamic & private routing system of React. UI is made with Semantic UI React. It's minimal and fast.
+    <br />
+    <a href="https://github.com/Porgramming-Hero-web-course/full-stack-client-Rahat47"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://groceries-pro.web.app">View Demo</a>
+    ·
+    <a href="https://github.com/Porgramming-Hero-web-course/full-stack-client-Rahat47/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/Porgramming-Hero-web-course/full-stack-client-Rahat47/issues">Request Feature</a>
+  </p>
+</p>
 
-In the project directory, you can run:
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li> 
+  </ol>
+</details>
 
-### `npm start`
+<!-- ABOUT THE PROJECT -->
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## About The Project
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![Groceries Pro](https://i.ibb.co/PTfVXxh/groceries-pro.png)
 
-### `npm test`
+_Groceries Pro:_
+This is a full stack web application template. Made for a small grocery like web app. Where you can buy one of every product, keep track of them in checkout and product page. This App also features firebase authentication system and also dynamic & private routing system of React. UI is made with Semantic UI React. It's minimal and fast.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Built With
 
-### `npm run build`
+### Front End
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-   [React](https://reactjs.org/)
+-   [Semantic Ui](https://react.semantic-ui.com/)
+-   [Firebase](https://firebase.google.com/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Back End
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-   [Node](https://nodejs.org/)
+-   [Express](https://expressjs.com/)
+-   [Mongoose](https://mongoosejs.com/)
 
-### `npm run eject`
+## Features
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+-   Connection with database.
+-   Authentication system.
+-   A semi functional cart system.
+-   Keep track of orders.
+-   Admin Panel for Modify, Delete or Add a new Product.
+-   Consistent Data Structure with Mongoose.
+-   File Structured for easily expanding to new Features
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## License
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Open Source, Free to use for any purpose.!!
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<!-- CONTACT -->
 
-## Learn More
+## Contact
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Rayhan Hossain Rahat - [@RayhanH06640052](https://twitter.com/RayhanH06640052) - djrayhan8@gmail.com
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Github Link: [https://github.com/Rahat47](https://github.com/Rahat47)
