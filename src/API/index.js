@@ -1,12 +1,12 @@
 import axios from 'axios'
 
-const toursEndpoint = 'http://localhost:5000/tours'
+const toursEndpoint = 'http://localhost:5000/api/v1/tours'
 // const toursEndpoint = 'https://travelers-mern.herokuapp.com/tours'
-const userEndpoint = 'http://localhost:5000/users'
+const userEndpoint = 'http://localhost:5000/api/v1/users'
 // const userEndpoint = 'https://travelers-mern.herokuapp.com/users'
-const reviewsEndpoint = 'http://localhost:5000/reviews'
+const reviewsEndpoint = 'http://localhost:5000/api/v1/reviews'
 // const reviewsEndpoint = 'https://travelers-mern.herokuapp.com/reviews'
-const ordersEndpoint = 'http://localhost:5000/orders'
+const ordersEndpoint = 'http://localhost:5000/api/v1/orders'
 // const ordersEndpoint = 'https://travelers-mern.herokuapp.com/orders'
 const imgbbEndpoint = 'https://api.imgbb.com/1/upload'
 
