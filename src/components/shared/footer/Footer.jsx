@@ -45,6 +45,15 @@ const Footer = () => {
                             <p style={{ color: "#fff" }}>
                                 Copyright &copy; | {new Date().getFullYear()} |
                                 by Travelers <Icon name="registered" /> .
+                                <br />
+                                Design Inspiration From{" "}
+                                <a
+                                    href="https://twitter.com/jonasschmedtman"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Jonas
+                                </a>
                             </p>
                         </Grid.Column>
                     </Grid.Row>
